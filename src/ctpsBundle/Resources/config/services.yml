@@ -1,0 +1,4 @@
+services:
+#    ctps.example:
+#        class: ctpsBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

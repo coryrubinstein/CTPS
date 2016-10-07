@@ -34,17 +34,14 @@ class DefaultController extends Controller
                 case '104' :
                     foreach($issueReason->getIssueReasonSubReasons() as $issueReasonSubReason)
                     {
-                        $subreasons['Leadership'][$issueReasonSubReason->getSubReason()->getId()] = array(
-                            'Name' => $issueReasonSubReason->getSubReason()->getName()
-                        );
                         $reasons['Leadership'][$issueReason->getReason()->getId()] = array(
                             'Name' => $issueReason->getReason()->getName(),
-                            'Subreason' => $issueReasonSubReason->getSubReason()->getName()
+                            'Subreason' => $subreasons['Leadership'] [$issueReasonSubReason->getSubReason()->getId()] = array(
+                                'Name' => $issueReasonSubReason->getSubReason()->getName()
+                            )
 
                         );
                     }
-
-
 
 
 
@@ -83,7 +80,8 @@ class DefaultController extends Controller
         $object = array('Issue' => array(
            'id' => $issue->getId(),
             'name' => $issue->getName(),
-            'reasons' => $reasons
+            'reasons' => $reasons,
+           // 'subreasons' => $subreasons
         ));
 
 

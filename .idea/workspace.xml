@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af10ca2d-a054-4f61-9a70-04bb99dd9e66" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/DoctrineMigrations/Version20160929153300.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/landing/list.html.twig" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CTPS.iml" afterPath="$PROJECT_DIR$/.idea/CTPS.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ctpsBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/ctpsBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ctpsBundle/Entity/Issue.php" afterPath="$PROJECT_DIR$/src/ctpsBundle/Entity/Issue.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ctpsBundle/Entity/IssueReason.php" afterPath="$PROJECT_DIR$/src/ctpsBundle/Entity/IssueReason.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ctpsBundle/Entity/IssueReasonSubReason.php" afterPath="$PROJECT_DIR$/src/ctpsBundle/Entity/IssueReasonSubReason.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ctpsBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/ctpsBundle/Resources/views/Default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ctpsBundle/ctpsBundle.php" afterPath="$PROJECT_DIR$/src/ctpsBundle/ctpsBundle.php" />
     </list>
     <ignored path="CTPS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,14 +27,14 @@
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state relative-caret-position="525">
+              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
                 <element signature="e#552#570#1#PHP" expanded="true" />
-                <element signature="e#3351#3369#1#PHP" expanded="true" />
-                <element signature="e#3470#3489#1#PHP" expanded="true" />
-                <element signature="e#3532#3557#0#PHP" expanded="true" />
+                <element signature="e#3327#3345#1#PHP" expanded="true" />
+                <element signature="e#3446#3465#1#PHP" expanded="true" />
+                <element signature="e#3508#3533#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,9 +45,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1830">
               <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
-              <folding>
-                <element signature="e#12#26#0#Twig" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -80,7 +63,7 @@
       <file leaf-file-name="IssueReasonSubReason.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ctpsBundle/Entity/IssueReasonSubReason.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="360">
               <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding />
             </state>
@@ -102,8 +85,8 @@
       <file leaf-file-name="SubReason.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ctpsBundle/Entity/SubReason.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="35" column="36" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="36" />
+            <state relative-caret-position="630">
+              <caret line="43" column="27" selection-start-line="42" selection-start-column="7" selection-end-line="43" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -483,12 +466,12 @@
       <workItem from="1475108274993" duration="11176000" />
       <workItem from="1475174426599" duration="34645000" />
       <workItem from="1475509815689" duration="37538000" />
-      <workItem from="1475701415693" duration="32918000" />
+      <workItem from="1475701415693" duration="40261000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117049000" />
+    <option name="totallyTimeSpent" value="124392000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -796,40 +779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ctpsBundle/Entity/Reason.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-          <folding>
-            <element signature="e#35#67#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ctpsBundle/Entity/SubReason.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="35" column="36" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ctpsBundle/Entity/IssueReasonSubReason.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ctpsBundle/Entity/IssueReason.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="71" column="7" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/landing/list.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -844,22 +793,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1830">
           <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ctpsBundle/Entity/IssueReason.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="71" column="7" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ctpsBundle/Entity/SubReason.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="43" column="27" selection-start-line="42" selection-start-column="7" selection-end-line="43" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ctpsBundle/Entity/Reason.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
           <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
+            <element signature="e#35#67#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ctpsBundle/Entity/IssueReasonSubReason.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state relative-caret-position="525">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
             <element signature="e#552#570#1#PHP" expanded="true" />
-            <element signature="e#3351#3369#1#PHP" expanded="true" />
-            <element signature="e#3470#3489#1#PHP" expanded="true" />
-            <element signature="e#3532#3557#0#PHP" expanded="true" />
+            <element signature="e#3327#3345#1#PHP" expanded="true" />
+            <element signature="e#3446#3465#1#PHP" expanded="true" />
+            <element signature="e#3508#3533#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

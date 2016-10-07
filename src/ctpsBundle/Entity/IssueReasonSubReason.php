@@ -31,10 +31,11 @@ class IssueReasonSubReason
      */
     private $issueReason;
 
-//    /**
-//     * @ORM\ManyToMany(targetEntity="Module")
-//     */
-//    private $modules;
+    /**
+    * @ORM\ManyToMany(targetEntity="Module")
+    */
+    private $modules;
+
 
     public function __construct(){
         $this->modules = new ArrayCollection();

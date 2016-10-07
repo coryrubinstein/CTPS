@@ -36,6 +36,7 @@ class IssueReason
      * @ORM\OneToMany(targetEntity="IssueReasonSubReason", mappedBy="issueReason")
      */
     private $issueReasonSubReasons;
+
     public function __construct(){
         $this->issueReasonSubReasons = new ArrayCollection();
     }
@@ -57,6 +58,7 @@ class IssueReason
     {
         return $this->issue;
     }
+
 
     /**
      * @param mixed $issue

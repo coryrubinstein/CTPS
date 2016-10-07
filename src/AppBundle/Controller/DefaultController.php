@@ -2,20 +2,122 @@
 
 namespace AppBundle\Controller;
 
+use ctpsBundle\Entity\Issue;
+use ctpsBundle\Entity\Reason;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class DefaultController extends Controller
 {
+
     /**
-     * @Route("/", name="homepage")
+     * @param $id
+     * @return string
+     * @Route("/list/{id}", name="issue_show")
      */
-    public function indexAction(Request $request)
+    public function showIssueAction ($id)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-        ]);
+        $em = $this->getDoctrine()->getManager();
+        $issue = $em->getRepository('ctpsBundle:Issue')
+            ->find($id);
+
+
+        $reasons = array();
+        $subreasons = array();
+
+
+        foreach($issue->getIssueReasons() as $issueReason) {
+
+
+            switch($issueReason->getReason()->getFamily()->getId()){
+                case '104' :
+                    foreach($issueReason->getIssueReasonSubReasons() as $issueReasonSubReason)
+                    {
+                        $subreasons['Leadership'][$issueReasonSubReason->getSubReason()->getId()] = array(
+                            'Name' => $issueReasonSubReason->getSubReason()->getName()
+                        );
+                        $reasons['Leadership'][$issueReason->getReason()->getId()] = array(
+                            'Name' => $issueReason->getReason()->getName(),
+                            'Subreason' => $issueReasonSubReason->getSubReason()->getName()
+
+                        );
+                    }
+
+
+
+
+
+                    break;
+                case '105' :
+                    $reasons['Frontline'][$issueReason->getReason()->getId()] = array(
+                        'Name' => $issueReason->getReason()->getName()
+                    );
+
+                    foreach($issueReason->getIssueReasonSubReasons() as $issueReasonSubReason)
+                    {
+                        $subreasons['Frontline'][$issueReasonSubReason->getSubReason()->getId()] = array(
+                            'Name' => $issueReasonSubReason->getSubReason()->getName()
+                        );
+                    }
+
+                    break;
+                case '106' :
+                    $reasons['BBE'][$issueReason->getReason()->getId()] = array(
+                        'Name' => $issueReason->getReason()->getName()
+                    );
+
+                    foreach($issueReason->getIssueReasonSubReasons() as $issueReasonSubReason)
+                    {
+                        $subreasons['BBE'][$issueReasonSubReason->getSubReason()->getId()] = array(
+                            'Name' => $issueReasonSubReason->getSubReason()->getName()
+                        );
+                    }
+
+                    break;
+            }
+
+        }
+
+
+        $object = array('Issue' => array(
+           'id' => $issue->getId(),
+            'name' => $issue->getName(),
+            'reasons' => $reasons
+        ));
+
+
+
+        return new JsonResponse($object);
+
+
+//        return $this->render('landing/showIssue.html.twig', [
+//            'issue' => $issue,
+//            'leadMgmt' => $leadMgmt,
+//            'frontLineSales' => $frontLineSales,
+//            'behavEmbed' => $behavEmbed
+//        ]);
+
     }
+
+
+    /**
+     * @Route("/list", name="list")
+     */
+   public function listAction()
+   {
+
+       $em = $this->getDoctrine()->getManager();
+       $issues = $em->getRepository('ctpsBundle:Issue')->findAll();
+
+       $em = $this->getDoctrine()->getManager();
+       $reasons = $em->getRepository('ctpsBundle:Reason')->findAll();
+
+       return $this->render('/landing/list.html.twig', [
+           'issue' => $issues,
+           'reason' => $reasons
+       ]);
+   }
+
+
 }

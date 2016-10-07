@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Issue
  *
  * @ORM\Table(name="Issues")
- * @ORM\Entity(repositoryClass="cbway\cbwayBundle\Entity\IssueRepository")
+ * @ORM\Entity(repositoryClass="ctpsBundle\Entity\IssueRepository")
  */
 class Issue
 {
@@ -18,26 +18,26 @@ class Issue
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
+
+
     /**
-     * @var string
      *
-     * @ORM\Column(name="class", type="string", length=255)
+     * @ORM\OneToMany(targetEntity="IssueReason", mappedBy="issue")
      */
-    private $class;
-//    /**
-//     *
-//     * @ORM\OneToMany(targetEntity="IssueReason", mappedBy="issue")
-//     */
-  // private $issueReasons;
+    private $issueReasons;
+
+
     public function __construct(){
         $this->issueReasons = new ArrayCollection();
     }
+
     /**
      * Get id
      *
@@ -51,7 +51,7 @@ class Issue
      * Set name
      *
      * @param string $name
-     * @return Video
+     * @return string
      */
     public function setName($name)
     {
@@ -67,6 +67,7 @@ class Issue
     {
         return $this->name;
     }
+
     /**
      * @return mixed
      */
@@ -74,18 +75,6 @@ class Issue
     {
         return $this->issueReasons;
     }
-    /**
-     * @return string
-     */
-    public function getClass()
-    {
-        return $this->class;
-    }
-    /**
-     * @param string $class
-     */
-    public function setClass($class)
-    {
-        $this->class = $class;
-    }
+
+
 }

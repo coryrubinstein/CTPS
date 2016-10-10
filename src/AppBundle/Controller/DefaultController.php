@@ -47,27 +47,27 @@ class DefaultController extends Controller
 
                     break;
                 case '105' :
-                    $reasons['Frontline'][$issueReason->getReason()->getId()] = array(
-                        'Name' => $issueReason->getReason()->getName()
-                    );
-
                     foreach($issueReason->getIssueReasonSubReasons() as $issueReasonSubReason)
                     {
-                        $subreasons['Frontline'][$issueReasonSubReason->getSubReason()->getId()] = array(
-                            'Name' => $issueReasonSubReason->getSubReason()->getName()
+                        $reasons['Frontline'][$issueReason->getReason()->getId()] = array(
+                            'Name' => $issueReason->getReason()->getName(),
+                            'Subreason' => $subreasons['Frontline'] [$issueReasonSubReason->getSubReason()->getId()] = array(
+                                'Name' => $issueReasonSubReason->getSubReason()->getName()
+                            )
+
                         );
                     }
 
                     break;
                 case '106' :
-                    $reasons['BBE'][$issueReason->getReason()->getId()] = array(
-                        'Name' => $issueReason->getReason()->getName()
-                    );
-
                     foreach($issueReason->getIssueReasonSubReasons() as $issueReasonSubReason)
                     {
-                        $subreasons['BBE'][$issueReasonSubReason->getSubReason()->getId()] = array(
-                            'Name' => $issueReasonSubReason->getSubReason()->getName()
+                        $reasons['BBE'][$issueReason->getReason()->getId()] = array(
+                            'Name' => $issueReason->getReason()->getName(),
+                            'Subreason' => $subreasons['BBE'] [$issueReasonSubReason->getSubReason()->getId()] = array(
+                                'Name' => $issueReasonSubReason->getSubReason()->getName()
+                            )
+
                         );
                     }
 
@@ -81,7 +81,6 @@ class DefaultController extends Controller
            'id' => $issue->getId(),
             'name' => $issue->getName(),
             'reasons' => $reasons,
-           // 'subreasons' => $subreasons
         ));
 
 
@@ -90,10 +89,11 @@ class DefaultController extends Controller
 
 
 //        return $this->render('landing/showIssue.html.twig', [
-//            'issue' => $issue,
-//            'leadMgmt' => $leadMgmt,
-//            'frontLineSales' => $frontLineSales,
-//            'behavEmbed' => $behavEmbed
+//            'id' => $issue->getId(),
+//            'name' => $issue->getName(),
+//            'reasons' => $reason,
+//            'subreasons' => $subreasons
+//           // 'json_reason' => json_encode($object)
 //        ]);
 
     }

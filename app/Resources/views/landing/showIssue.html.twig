@@ -1,123 +1,51 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %} {{ name }} {% endblock %}
+{% block title %}{% endblock %}
 
 {% block stylesheets %}
 
-    <style>
-        body{
-            background-color: beige;
-        }
+       {{ parent() }}
 
-        .center {
-            text-align: center;
-        }
-
-        li {
-            font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-        }
-
-        .funFont {
-            font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-            text-align: center;
-            font-weight: 700;
-        }
-
-        h1 {
-            font-family: fantasy;
-            text-align: center;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-
-        .column-left {
-            float: left; width: 33%;
-            text-decoration: none;
-        }
-
-        .column-left:hover {
-            text-decoration: underline;
-            -moz-text-decoration-color: blue; /* Code for Firefox */
-            text-decoration-color: blue;
-            -webkit-text-decoration-color: blue;
-        }
-
-        .column-right {
-            float: right; width: 33%;
-            text-decoration: none;
-        }
-
-        .column-right:hover {
-            text-decoration: underline;
-            -moz-text-decoration-color: darkorange; /* Code for Firefox */
-            text-decoration-color: darkorange;
-            -webkit-text-decoration-color: darkorange;
-        }
-
-        .column-center {
-            display: inline-block; width: 33%;
-            text-decoration: none;
-        }
-
-        .column-center:hover {
-            text-decoration: underline;
-            -moz-text-decoration-color: green; /* Code for Firefox */
-            text-decoration-color: green;
-            -webkit-text-decoration-color: green;
-        }
-
-        /*.column-left ul {*/
-            /*display: none;*/
-        /*}*/
-
-        .column-center ul {
-            display: none;
-        }
-
-        .column-right ul {
-            display: none;
-        }
-
-
-
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/getIssue.css') }}">
 
 {% endblock %}
 
 {% block body %}
 
-    <h1 class="center">{{ name }}</h1>
+    <h1 class="center">{{ Issue.name }}</h1>
 
     <br>
     <br>
 
     <div class="container">
         <div id="left" class="column-left funFont">
-            <div>Leadership Management</div>
+            <div id="lead">Leadership Management</div>
             <ul id="left-ul" type="none">
-                {% for name in name %}
-                <br><li>{{ reason }}</li>
-                    {% endfor %}
-            </ul>
-        </div>
-        <div id="center" class="column-center funFont">
-            <div>Front Line Sales & Service</div>
-            <ul id="center-ul" type="none">
-                {#{% for frontLineSales in frontLineSales %}#}
-                    {#<br><li>{{ json_reason}}</li>#}
+                {#{% for data in finalArray %}#}
+                {#<br><li>{{ reason.name }}</li>#}
+                    {#{% endfor %}#}
+            </ul><br>
+        {#</div>#}
+        {#<div id="center" class="column-center funFont">#}
+            {#<div>Front Line Sales & Service</div>#}
+            {#<ul id="center-ul" type="none">#}
+                {#{% for reason in reason %}#}
+                    {#<br><li>{{ reason.name }}</li>#}
                 {#{% endfor %}#}
-            </ul>
-        </div>
-        <div id="right" class="column-right funFont">
-            <div>Behavioral Embedding</div>
-            <ul id="right-ul" type="none">
-                {#{% for behavEmbed in behavEmbed %}#}
-                    {#<br><li>{{ json_reason }}</li>#}
+            {#</ul>#}
+        {#</div>#}
+        {#<div id="right" class="column-right funFont">#}
+            {#<div>Behavioral Embedding</div>#}
+            {#<ul id="right-ul" type="none">#}
+                {#{% for reason in reason %}#}
+                    {#<br><li>{{ reason.name }}</li>#}
                 {#{% endfor %}#}
-            </ul>
-        </div>
-    </div>
+            {#</ul>#}
+        {#</div>#}
+    {#</div>#}
+
+    <button class="btn btn-success">Test</button>
 
 
 
@@ -126,20 +54,24 @@
 
 {% block javascripts %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    {{ parent() }}
+
+    <script src="{{ asset('js/test.js') }}"></script>
 
     <script>
-        $('#left').click(function() {
-            $('#left-ul').toggle('click');
-        })
 
-        $('#center').click(function() {
-            $('#center-ul').toggle('click');
-        })
 
-        $('#right').click(function() {
-            $('#right-ul').toggle('click');
-        })
+//        $('#left').click(function() {
+//            $('#left-ul').toggle('click');
+//        })
+//
+//        $('#center').click(function() {
+//            $('#center-ul').toggle('click');
+//        })
+//
+//        $('#right').click(function() {
+//            $('#right-ul').toggle('click');
+//        })
 
     </script>
 

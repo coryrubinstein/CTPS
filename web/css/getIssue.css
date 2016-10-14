@@ -1,0 +1,72 @@
+body{
+    background-color: beige;
+}
+
+.center {
+    text-align: center;
+}
+
+li {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.funFont {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: 700;
+}
+
+h1 {
+    font-family: fantasy;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.column-left {
+    float: left; width: 33%;
+    text-decoration: none;
+}
+
+.column-left:hover {
+    text-decoration: underline;
+    -moz-text-decoration-color: blue; /* Code for Firefox */
+    text-decoration-color: blue;
+    -webkit-text-decoration-color: blue;
+}
+
+.column-right {
+    float: right; width: 33%;
+    text-decoration: none;
+}
+
+.column-right:hover {
+    text-decoration: underline;
+    -moz-text-decoration-color: darkorange; /* Code for Firefox */
+    text-decoration-color: darkorange;
+    -webkit-text-decoration-color: darkorange;
+}
+
+.column-center {
+    display: inline-block; width: 33%;
+    text-decoration: none;
+}
+
+.column-center:hover {
+    text-decoration: underline;
+    -moz-text-decoration-color: green; /* Code for Firefox */
+    text-decoration-color: green;
+    -webkit-text-decoration-color: green;
+}
+
+/*.column-left ul {*/
+    /*display: none;*/
+/*}*/
+
+/*.column-center ul {*/
+    /*display: none;*/
+/*}*/
+
+/*.column-right ul {*/
+    /*display: none;*/
+/*}*/

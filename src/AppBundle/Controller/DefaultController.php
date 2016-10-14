@@ -14,7 +14,31 @@ class DefaultController extends Controller
     /**
      * @param $id
      * @return string
-     * @Route("/list/{id}", name="issue_show")
+     * @Route("/get/issue/{id}", name="issue_get")
+     */
+    public function issueGetAction($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $issue = $em->getRepository('ctpsBundle:Issue')
+            ->find($id);
+
+        $finalArray = array
+        (
+            'Issue' => $this->parseIssue($issue)
+        );
+
+        return $this->render('/landing/showIssue.html.twig', array
+        (
+           'Issue' => $finalArray
+        ));
+    }
+
+
+    /**
+     * @param $id
+     * @return string
+     * @Route("/get/{id}", name="issue_show")
      */
     public function showIssueAction ($id)
     {
@@ -22,85 +46,18 @@ class DefaultController extends Controller
         $issue = $em->getRepository('ctpsBundle:Issue')
             ->find($id);
 
+        $finalArray = array
+        (
+            'Issue' => $this->parseIssue($issue)
+        );
 
-        $reasons = array();
-        $subreasons = array();
-
-
-        foreach($issue->getIssueReasons() as $issueReason) {
-
-
-            switch($issueReason->getReason()->getFamily()->getId()){
-                case '104' :
-                    foreach($issueReason->getIssueReasonSubReasons() as $issueReasonSubReason)
-                    {
-                        $reasons['Leadership'][$issueReason->getReason()->getId()] = array(
-                            'Name' => $issueReason->getReason()->getName(),
-                            'Subreason' => $subreasons['Leadership'] [$issueReasonSubReason->getSubReason()->getId()] = array(
-                                'Name' => $issueReasonSubReason->getSubReason()->getName()
-                            )
-
-                        );
-                    }
-
-
-
-                    break;
-                case '105' :
-                    foreach($issueReason->getIssueReasonSubReasons() as $issueReasonSubReason)
-                    {
-                        $reasons['Frontline'][$issueReason->getReason()->getId()] = array(
-                            'Name' => $issueReason->getReason()->getName(),
-                            'Subreason' => $subreasons['Frontline'] [$issueReasonSubReason->getSubReason()->getId()] = array(
-                                'Name' => $issueReasonSubReason->getSubReason()->getName()
-                            )
-
-                        );
-                    }
-
-                    break;
-                case '106' :
-                    foreach($issueReason->getIssueReasonSubReasons() as $issueReasonSubReason)
-                    {
-                        $reasons['BBE'][$issueReason->getReason()->getId()] = array(
-                            'Name' => $issueReason->getReason()->getName(),
-                            'Subreason' => $subreasons['BBE'] [$issueReasonSubReason->getSubReason()->getId()] = array(
-                                'Name' => $issueReasonSubReason->getSubReason()->getName()
-                            )
-
-                        );
-                    }
-
-                    break;
-            }
-
-        }
-
-
-        $object = array('Issue' => array(
-           'id' => $issue->getId(),
-            'name' => $issue->getName(),
-            'reasons' => $reasons,
-        ));
-
-
-
-        return new JsonResponse($object);
-
-
-//        return $this->render('landing/showIssue.html.twig', [
-//            'id' => $issue->getId(),
-//            'name' => $issue->getName(),
-//            'reasons' => $reason,
-//            'subreasons' => $subreasons
-//           // 'json_reason' => json_encode($object)
-//        ]);
+        return new JsonResponse($finalArray);
 
     }
 
 
     /**
-     * @Route("/list", name="list")
+     * @Route("/get", name="list")
      */
    public function listAction()
    {
@@ -111,11 +68,97 @@ class DefaultController extends Controller
        $em = $this->getDoctrine()->getManager();
        $reasons = $em->getRepository('ctpsBundle:Reason')->findAll();
 
-       return $this->render('/landing/list.html.twig', [
+       return $this->render('/landing/list.html.twig',
+           [
+
            'issue' => $issues,
            'reason' => $reasons
-       ]);
+
+           ]);
    }
 
 
-}
+   private function parseIssue($issue)
+   {
+
+       $reasonsArr = array();
+       $reasons = $issue->getIssueReasons();
+
+
+       foreach ($reasons as $reasonObj)
+       {
+           $parsedReason = $this->parseReason($reasonObj);
+           array_push($reasonsArr,$parsedReason);
+       }
+
+       $returnIssue = array
+       (
+           'id' => $issue->getId(),
+           'name' => $issue->getName(),
+           'reasons' => $reasonsArr
+
+       );
+       return $returnIssue;
+   }
+
+
+   private function parseReason($reasonObj)
+   {
+       $subReasonArr = array();
+       $subReasons = $reasonObj->getIssueReasonSubReasons();
+
+       foreach ($subReasons as $subReasonObj)
+       {
+           $parsedSubReason = $this->parseSubReason($subReasonObj);
+           array_push($subReasonArr, $parsedSubReason);
+       }
+
+
+       $returnReason = array
+       (
+           'id' => $reasonObj->getReason()->getId(),
+           'name' => $reasonObj->getReason()->getName(),
+           'family' => $reasonObj->getReason()->getFamily()->getName(),
+           'familyId' => $reasonObj->getReason()->getFamily()->getId(),
+           'subreasons' => $subReasonArr
+       );
+
+       return $returnReason;
+   }
+
+
+   private function parseSubReason($subReasonObj)
+   {
+       $solutionsArr = array();
+       $modules = $subReasonObj->getModules();
+
+       foreach ($modules as $moduleObj)
+       {
+           $parsedModule = $this->parseModules($moduleObj);
+           array_push($solutionsArr, $parsedModule);
+       }
+
+       $returnSubReason = array
+       (
+           'id' => $subReasonObj->getSubReason()->getId(),
+           'name' => $subReasonObj->getSubReason()->getName(),
+           'solutions' => $solutionsArr
+       );
+
+       return $returnSubReason;
+   }
+
+
+   private function parseModules($moduleObj)
+   {
+
+       $returnModule = array
+       (
+           'id' => $moduleObj->getId(),
+           'name' => $moduleObj->getName(),
+       );
+
+       return $returnModule;
+   }
+
+  }

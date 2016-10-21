@@ -2,7 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use ctpsBundle\ctpsBundle;
 use ctpsBundle\Entity\Issue;
+use ctpsBundle\Entity\IssueReason;
 use ctpsBundle\Entity\Reason;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -20,17 +22,22 @@ class DefaultController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
+
         $issue = $em->getRepository('ctpsBundle:Issue')
             ->find($id);
 
+
         $finalArray = array
         (
-            'Issue' => $this->parseIssue($issue)
+            'Issue' => $this->parseIssue($issue),
+            'name' => $issue->getName(),
+
         );
 
         return $this->render('/landing/showIssue.html.twig', array
         (
-           'Issue' => $finalArray
+           'Issue' => $finalArray,
+
         ));
     }
 
@@ -45,6 +52,8 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $issue = $em->getRepository('ctpsBundle:Issue')
             ->find($id);
+
+        header('Content-type: text/javascript');
 
         $finalArray = array
         (

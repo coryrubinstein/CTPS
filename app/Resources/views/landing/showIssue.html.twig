@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}{% endblock %}
+{% block title %} {{ Issue.name }} {% endblock %}
 
 {% block stylesheets %}
 
@@ -13,19 +13,22 @@
 
 {% block body %}
 
+
     <h1 class="center">{{ Issue.name }}</h1>
 
     <br>
     <br>
 
-    <div class="container">
-        <div id="left" class="column-left funFont">
-            <div id="lead">Leadership Management</div>
-            <ul id="left-ul" type="none">
-                {#{% for data in finalArray %}#}
+
+
+    {#<div class="container">#}
+        {#<div id="left" class="column-left funFont">#}
+            {#<div id="lead">Leadership Management</div>#}
+            {#<ul id="left-ul" type="none">#}
+                {#{% for reason in Reason %}#}
                 {#<br><li>{{ reason.name }}</li>#}
                     {#{% endfor %}#}
-            </ul><br>
+            {#</ul><br>#}
         {#</div>#}
         {#<div id="center" class="column-center funFont">#}
             {#<div>Front Line Sales & Service</div>#}
@@ -43,9 +46,14 @@
                 {#{% endfor %}#}
             {#</ul>#}
         {#</div>#}
+
+        {#<br><br>#}
+
+        {#<input class="btn btn-info" type="button" value="Submit" name="submit" id="submit">#}
+       <p> <div id="result"></div></p>
+
     {#</div>#}
 
-    <button class="btn btn-success">Test</button>
 
 
 
@@ -57,23 +65,5 @@
     {{ parent() }}
 
     <script src="{{ asset('js/test.js') }}"></script>
-
-    <script>
-
-
-//        $('#left').click(function() {
-//            $('#left-ul').toggle('click');
-//        })
-//
-//        $('#center').click(function() {
-//            $('#center-ul').toggle('click');
-//        })
-//
-//        $('#right').click(function() {
-//            $('#right-ul').toggle('click');
-//        })
-
-    </script>
-
 
 {% endblock %}

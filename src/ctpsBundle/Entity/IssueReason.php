@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Issue
  *
  * @ORM\Table(name="IssuesReason")
- * @ORM\Entity(repositoryClass="cbway\cbwayBundle\Entity\IssueReasonRepository")
+ * @ORM\Entity(repositoryClass="ctpsBundle\Entity\IssueReasonRepository")
  */
 class IssueReason
 {

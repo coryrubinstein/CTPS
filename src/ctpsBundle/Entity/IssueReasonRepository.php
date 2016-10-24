@@ -1,5 +1,5 @@
 <?php
-namespace cbway\cbwayBundle\Entity;
+namespace ctpsBundle\Entity;
 use Doctrine\ORM\EntityRepository;
 /**
  *

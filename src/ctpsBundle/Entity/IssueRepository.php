@@ -19,14 +19,14 @@ class IssueRepository extends EntityRepository
             ->getQuery()
             ->getSingleScalarResult();
     }
-    /*
-    public function getIssueReasons($issue){
-        return $this->getEntityManager()->getRepository('cbwayBundle:Reason')->createQueryBuilder('r')
+
+    public function getIssueReasonSubReasons($issue,$reason){
+        return $this->getEntityManager()->getRepository('ctpsBundle:IssueReasonSubReason')->createQueryBuilder('r')
             ->leftJoin('r.issue', 'i')
             ->andWhere('i.id=:issue')
             ->setParameter('issue',$issue)
             ->getQuery()
             ->execute();
     }
-    */
+
 }

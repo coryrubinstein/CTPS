@@ -22,7 +22,7 @@ class Module
     /**
      * @var string
      *
-     * @ORM\Column(name="moduleName", type="string", length=255, nullable=false)
+     * @ORM\Column(name="Name", type="string", length=255, nullable=false)
      */
     private $name;
 
@@ -32,7 +32,7 @@ class Module
      *
      * @ORM\ManyToOne(targetEntity="\ctpsBundle\Entity\ModuleFamily")
      * @ORM\JoinColumns({
-     * @ORM\JoinColumn(name="moduleFamily", referencedColumnName="id")
+     * @ORM\JoinColumn(name="Family", referencedColumnName="id")
      * })
      */
     private $family;
@@ -41,7 +41,7 @@ class Module
     /**
      * @var string
      *
-     * @ORM\Column(name="moduleDescription", type="text", nullable=true)
+     * @ORM\Column(name="Description", type="text", nullable=true)
      */
     private $description;
 

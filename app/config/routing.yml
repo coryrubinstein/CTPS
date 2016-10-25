@@ -6,3 +6,9 @@ ctps:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+api.voting.instructor.override.get:
+    path: /ctps/get/{workshopId}
+    defaults: { _controller: VirtualClassroomBundle:VirtualEvents:getIdeasOverride }
+    methods: [GET]
+    options: { expose: true }

@@ -28,21 +28,36 @@ $(document).ready(function () {
         cache: false,
         success: function(data) {
            $(data.Issue.reasons).each(function (index, value) {
+               /*
+                Reasons.........................
+                */
                if (value.familyId == 104) {
                    $('#Leadership').text(value.family);
-                   for (i = 0; i < 5; i++) {
-                       $('#LeadReas').text(value.name);
+                   var reasonId = 'reas_lead_'+value.id;
+                   $('#LeadReas').append('<li>'+value.name+'<ul id="'+ reasonId +'"></ul></li><br><br>');
+
+                   /*
+                   Subreasons...................
+                    */
+
+                      var subreasons = value.subreasons;
+                      for (i = 0; i < subreasons.length; i++ ) {
+                          $('#'+reasonId).append('<li>'+subreasons[i].name+'</li>');
+
                    }
+
                }
 
                if (value.familyId == 105) {
                    $('#Front_Line').text(value.family);
-                   $('#FrontReas').text(value.name);
+                   $('#FrontReas').append('<li>'+value.name+'</li><br><br>');
+
                }
 
                if (value.familyId == 106) {
                    $('#Behavioral').text(value.family);
-                   $('#BehaveReas').text(value.name);
+                   $('#BehaveReas').append('<li>'+value.name+'</li><br><br>');
+
                }
             });
             //console.log(data.Issue);

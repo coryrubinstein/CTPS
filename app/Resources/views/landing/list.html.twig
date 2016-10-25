@@ -16,7 +16,7 @@
     <ul type="none">
         {% for issue in issue %}
 
-            <br><br><li><a href="{{ path ('issue_show', {
+            <br><br><li><a href="{{ path ('issue_get', {
             'id': issue.id
         }) }}">{{ issue.name }}</a>
 

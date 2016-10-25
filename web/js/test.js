@@ -1,62 +1,83 @@
 $(document).ready(function () {
-    //$(document).on('load', function () {
-    //
-    //    var that = $(this),
-    //        url = that.attr('action'),
-    //        method = that.attr('method'),
-    //        data = {};
-    //
-    //    that.find('[name]').each(function(index, value) {
-    //        var that = $(this),
-    //            name = that.att('name'),
-    //            value = that.val();
-    //
-    //        data[name] = value;
-    //    });
-    //
-    //    console.log(data);
-    //
-    //    return false;
-    //});
-
 
     $.ajax({
-        url: '/get/12',
+        url: Routing.generate('api.ctps.issue.get', {issueId:12}),
         dataType: 'json',
         contentType: 'application/json',
-        type: 'POST',
+        type: 'GET',
         cache: false,
         success: function(data) {
            $(data.Issue.reasons).each(function (index, value) {
-               /*
-                Reasons.........................
-                */
-               if (value.familyId == 104) {
-                   $('#Leadership').text(value.family);
-                   var reasonId = 'reas_lead_'+value.id;
-                   $('#LeadReas').append('<li>'+value.name+'<ul id="'+ reasonId +'"></ul></li><br><br>');
+
+               if (value.familyId == 104)
+               {
 
                    /*
-                   Subreasons...................
+                    Leadership Reasons.........................
+                    */
+
+                   $('#Leadership').text(value.family);
+                   var leadReasonId = 'reas_lead_'+value.id;
+                   $('#LeadReas').append('<li>'+value.name+'<ul id="'+ leadReasonId +'"></ul></li><br><br>');
+
+                   /*
+                   Leadership Subreasons...................
                     */
 
                       var subreasons = value.subreasons;
-                      for (i = 0; i < subreasons.length; i++ ) {
-                          $('#'+reasonId).append('<li>'+subreasons[i].name+'</li>');
+                      for (i = 0; i < subreasons.length; i++ )
+                      {
+                          $('#'+leadReasonId).append('<br><li type="disc">'+subreasons[i].name+'</li>');
+
+                      }
+
+               }
+
+               if (value.familyId == 105)
+               {
+
+                   /*
+                    Frontline Reasons.........................
+                    */
+
+                   $('#Front_Line').text(value.family);
+                   var frontReasonId = 'reas_front_'+value.id;
+                   $('#FrontReas').append('<li>'+value.name+'<ul type="none" id="'+ frontReasonId + '"></ul></li><br><br>');
+
+                   /*
+                    Frontline Subreasons...................
+                    */
+
+                   var subreasons = value.subreasons;
+                   for (i = 0; i < subreasons.length; i++ )
+                   {
+                       $('#'+frontReasonId).append('<br><li type="disc">'+subreasons[i].name+'</li>');
 
                    }
 
                }
 
-               if (value.familyId == 105) {
-                   $('#Front_Line').text(value.family);
-                   $('#FrontReas').append('<li>'+value.name+'</li><br><br>');
+               if (value.familyId == 106)
+               {
 
-               }
+                   /*
+                    Behavioral Reasons.........................
+                    */
 
-               if (value.familyId == 106) {
                    $('#Behavioral').text(value.family);
-                   $('#BehaveReas').append('<li>'+value.name+'</li><br><br>');
+                   var behaveReasonId = 'reas_behave_'+value.id;
+                   $('#BehaveReas').append('<li>'+value.name+'<ul type="none" id="'+ behaveReasonId + '"></ul></li><br><br>');
+
+                   /*
+                    Behavioral Subreasons.........................
+                    */
+
+                   var subreasons = value.subreasons;
+                   for (i = 0; i < subreasons.length; i++ )
+                   {
+                       $('#'+behaveReasonId).append('<br><li type="disc">'+subreasons[i].name+'</li>');
+
+                   }
 
                }
             });

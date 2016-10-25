@@ -7,8 +7,11 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-api.voting.instructor.override.get:
-    path: /ctps/get/{workshopId}
-    defaults: { _controller: VirtualClassroomBundle:VirtualEvents:getIdeasOverride }
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+api.ctps.issue.get:
+    path: /ctps/issue/get/{issueId}
+    defaults: { _controller: ctpsBundle:Default:showIssue }
     methods: [GET]
     options: { expose: true }

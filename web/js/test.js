@@ -29,7 +29,20 @@ $(document).ready(function () {
         success: function(data) {
            $(data.Issue.reasons).each(function (index, value) {
                if (value.familyId == 104) {
-                   console.log(value.name);
+                   $('#Leadership').text(value.family);
+                   for (i = 0; i < 5; i++) {
+                       $('#LeadReas').text(value.name);
+                   }
+               }
+
+               if (value.familyId == 105) {
+                   $('#Front_Line').text(value.family);
+                   $('#FrontReas').text(value.name);
+               }
+
+               if (value.familyId == 106) {
+                   $('#Behavioral').text(value.family);
+                   $('#BehaveReas').text(value.name);
                }
             });
             //console.log(data.Issue);

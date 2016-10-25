@@ -20,39 +20,28 @@
     <br>
 
 
-
-    {#<div class="container">#}
-        {#<div id="left" class="column-left funFont">#}
-            {#<div id="lead">Leadership Management</div>#}
-            {#<ul id="left-ul" type="none">#}
-                {#{% for reason in Reason %}#}
-                {#<br><li>{{ reason.name }}</li>#}
-                    {#{% endfor %}#}
-            {#</ul><br>#}
-        {#</div>#}
-        {#<div id="center" class="column-center funFont">#}
-            {#<div>Front Line Sales & Service</div>#}
-            {#<ul id="center-ul" type="none">#}
-                {#{% for reason in reason %}#}
-                    {#<br><li>{{ reason.name }}</li>#}
-                {#{% endfor %}#}
-            {#</ul>#}
-        {#</div>#}
-        {#<div id="right" class="column-right funFont">#}
-            {#<div>Behavioral Embedding</div>#}
-            {#<ul id="right-ul" type="none">#}
-                {#{% for reason in reason %}#}
-                    {#<br><li>{{ reason.name }}</li>#}
-                {#{% endfor %}#}
-            {#</ul>#}
-        {#</div>#}
-
-        {#<br><br>#}
-
-        {#<input class="btn btn-info" type="button" value="Submit" name="submit" id="submit">#}
-       <p> <div id="result"></div></p>
-
-    {#</div>#}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 id="Leadership"></h4>
+                <ul type="none">
+                    <li id="LeadReas"></li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h4 id="Front_Line"></h4>
+                <ul type="none">
+                    <li id="FrontReas"></li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h4 id="Behavioral"></h4>
+                <ul type="none">
+                    <li id="BehaveReas"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 
 

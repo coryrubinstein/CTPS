@@ -58,6 +58,17 @@ h1 {
     -webkit-text-decoration-color: green;
 }
 
+#leadReas {
+    display: none;
+}
+
+#frontReas {
+    display: none;
+}
+
+#behaveReas {
+    display: none;
+}
 
 /*.column-left ul {*/
     /*display: none;*/

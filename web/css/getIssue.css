@@ -70,14 +70,11 @@ h1 {
     display: none;
 }
 
-/*.column-left ul {*/
-    /*display: none;*/
-/*}*/
+.js-reason {
+    display: none;
+    margin: 10px 0;
+}
 
-/*.column-center ul {*/
-    /*display: none;*/
-/*}*/
-
-/*.column-right ul {*/
-    /*display: none;*/
-/*}*/
+.js-subreasons {
+    display: none;
+}

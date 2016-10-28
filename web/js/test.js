@@ -1,4 +1,15 @@
-$(document).ready(function () {
+$(document).ready(function ()
+{
+
+    $('#leadReas').on('click', '.js-reason', function(e)
+    {
+        e.preventDefault();
+        var clickSubreasons = $(this).data('reason');
+        console.log(clickSubreasons);
+        $('#'+clickSubreasons).find('ul').toggle();
+    });
+
+
 
     $.ajax({
         url: Routing.generate('api.ctps.issue.get', {issueId:12}),
@@ -9,9 +20,10 @@ $(document).ready(function () {
         success: function(data) {
            $(data.Issue.reasons).each(function (index, value)
            {
-               $('#leadership').click(function()
+               $('#leadership').click(function(e)
                {
-                  $('#leadReas').slideDown(1550);
+                   e.preventDefault();
+                   $('#leadReas').show({effect: 'drop', speed: 'slow'});
 
                });
 
@@ -24,7 +36,7 @@ $(document).ready(function () {
 
                    $('#leadership').text(value.family);
                    var leadReasonId = 'reas_lead_'+value.id;
-                   $('#leadReas').append('<li>'+value.name+'<ul id="'+ leadReasonId +'"></ul></li><br><br>');
+                   $('#leadReas').append('<li>'+value.name+'<ul data-reason="reason" class=".js-reason" id="subReas_'+ leadReasonId +'"></ul></li>');
 
                    /*
                    Leadership Subreasons...................
@@ -33,7 +45,7 @@ $(document).ready(function () {
                       var leadSubReasons = value.subreasons;
                       for (i = 0; i < leadSubReasons.length; i++ )
                       {
-                          $('#'+leadReasonId).append('<br><li type="disc">'+leadSubReasons[i].name+'</li>');
+                          $('#'+leadReasonId).append('<li class=".js-subreasons" type="disc"><ul data-subreason="subreasons">'+leadSubReasons[i].name+'</ul></li>');
 
                           /*
                            Leadership Solutions...................
@@ -137,9 +149,6 @@ $(document).ready(function () {
                    }
 
                }
-
-
-
 
             });
 

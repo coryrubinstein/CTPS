@@ -5,8 +5,16 @@ $(document).ready(function ()
     {
         e.preventDefault();
         var clickSubreasons = $(this).data('reason');
-        console.log(clickSubreasons);
-        $('#'+clickSubreasons).find('ul').toggle();
+        // console.log(clickSubreasons);
+        $('#'+clickSubreasons).toggle();
+        // console.log('click');
+    });
+
+    $('#leadReas').on('click', '.js-subreason', function(e) {
+        e.stopImmediatePropagation();
+        var clickSolutions = $(this).data('subreason');
+        console.log(clickSolutions);
+        $('#'+clickSolutions).toggle();
     });
 
 
@@ -23,7 +31,7 @@ $(document).ready(function ()
                $('#leadership').click(function(e)
                {
                    e.preventDefault();
-                   $('#leadReas').show({effect: 'drop', speed: 'slow'});
+                   $('#leadReas').toggle();
 
                });
 
@@ -35,8 +43,8 @@ $(document).ready(function ()
                     */
 
                    $('#leadership').text(value.family);
-                   var leadReasonId = 'reas_lead_'+value.id;
-                   $('#leadReas').append('<li>'+value.name+'<ul data-reason="reason" class=".js-reason" id="subReas_'+ leadReasonId +'"></ul></li>');
+                   var leadReasonId = 'subReas_'+value.id;
+                   $('#leadReas').append('<li class="js-reason" data-reason="'+ leadReasonId +'">'+value.name+'<ul class="subreasons" id="'+ leadReasonId +'"></ul></li>');
 
                    /*
                    Leadership Subreasons...................
@@ -45,22 +53,19 @@ $(document).ready(function ()
                       var leadSubReasons = value.subreasons;
                       for (i = 0; i < leadSubReasons.length; i++ )
                       {
-                          $('#'+leadReasonId).append('<li class=".js-subreasons" type="disc"><ul data-subreason="subreasons">'+leadSubReasons[i].name+'</ul></li>');
+                          $('#'+leadReasonId).append('<li class="js-subreason" type="disc" data-subreason="solu_'+ leadSubReasons[i].id +'">'+leadSubReasons[i].name+'<ul class="solutions" id="solu_'+leadSubReasons[i].id +'"></ul></li>');
 
-                          /*
-                           Leadership Solutions...................
-                           */
+                           /*
+                            Leadership Solutions...................
+                            */
 
                           var leadSolutions = leadSubReasons[i].solutions;
-
                           for (x = 0; x < leadSolutions.length; x++ )
                           {
-                              $('#'+leadReasonId).append('<br><ul><li type="circle">'+leadSolutions[x].name+'</li></ul>');
+                              $('#solu_'+leadSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+leadSolutions[x].id+'">'+leadSolutions[x].name+'</li>');
                           }
 
-
                       }
-
                }
 
 
@@ -68,9 +73,10 @@ $(document).ready(function ()
                if (value.familyId == 105)
                {
 
-                   $('#front_Line').click(function()
+                   $('#front_Line').click(function(e)
                    {
-                       $('#frontReas').slideDown(1550);
+                       e.stopImmediatePropagation();
+                       $('#frontReas').toggle({effect: 'drop', speed: 'slow'});
                    });
 
                    /*
@@ -110,9 +116,10 @@ $(document).ready(function ()
                if (value.familyId == 106)
                {
 
-                   $('#behavioral').click(function()
+                   $('#behavioral').click(function(e)
                    {
-                       $('#behaveReas').slideDown(1550);
+                       e.stopImmediatePropagation();
+                       $('#behaveReas').toggle({effect: 'drop', speed: 'slow'});
                    });
 
                    /*

@@ -70,11 +70,19 @@ h1 {
     display: none;
 }
 
-.js-reason {
+/*.js-reason {*/
+    /*display: none;*/
+    /*margin: 10px 0;*/
+/*}*/
+
+/*.js-subreasons {*/
+    /*display: none;*/
+/*}*/
+
+.subreasons {
     display: none;
-    margin: 10px 0;
 }
 
-.js-subreasons {
+.solutions {
     display: none;
 }

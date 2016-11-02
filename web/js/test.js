@@ -1,21 +1,64 @@
 $(document).ready(function ()
 {
 
+    /*
+    Leadership Toggles.........................
+     */
+
     $('#leadReas').on('click', '.js-reason', function(e)
     {
         e.preventDefault();
         var clickSubreasons = $(this).data('reason');
-        // console.log(clickSubreasons);
-        $('#'+clickSubreasons).toggle();
-        // console.log('click');
+        $('#'+clickSubreasons).toggle({effect: 'drop', speed: 'slow'});
     });
 
-    $('#leadReas').on('click', '.js-subreason', function(e) {
+    $('#leadReas').on('click', '.js-subreason', function(e)
+    {
         e.stopImmediatePropagation();
         var clickSolutions = $(this).data('subreason');
-        console.log(clickSolutions);
-        $('#'+clickSolutions).toggle();
+        $('#'+clickSolutions).toggle({effect: 'drop', speed: 'slow'});
     });
+
+
+    /*
+     Front Line Toggles.........................
+     */
+
+
+    $('#frontReas').on('click', '.js-reason', function(e)
+    {
+        e.preventDefault();
+        var clickSubreasons = $(this).data('reason');
+        $('#'+clickSubreasons).toggle({effect: 'drop', speed: 'slow'});
+    });
+
+    $('#frontReas').on('click', '.js-subreason', function(e)
+    {
+        e.stopImmediatePropagation();
+        var clickSolutions = $(this).data('subreason');
+        $('#'+clickSolutions).toggle({effect: 'drop', speed: 'slow'});
+    });
+
+
+    /*
+     Behavioral Toggles.........................
+     */
+
+
+    $('#behaveReas').on('click', '.js-reason', function(e)
+    {
+        e.preventDefault();
+        var clickSubreasons = $(this).data('reason');
+        $('#'+clickSubreasons).toggle({effect: 'drop', speed: 'slow'});
+    });
+
+    $('#behaveReas').on('click', '.js-subreason', function(e)
+    {
+        e.stopImmediatePropagation();
+        var clickSolutions = $(this).data('subreason');
+        $('#'+clickSolutions).toggle({effect: 'drop', speed: 'slow'});
+    });
+
 
 
 
@@ -30,8 +73,8 @@ $(document).ready(function ()
            {
                $('#leadership').click(function(e)
                {
-                   e.preventDefault();
-                   $('#leadReas').toggle();
+                   e.stopImmediatePropagation();
+                   $('#leadReas').toggle({effect: 'drop', speed: 'slow'});
 
                });
 
@@ -43,7 +86,7 @@ $(document).ready(function ()
                     */
 
                    $('#leadership').text(value.family);
-                   var leadReasonId = 'subReas_'+value.id;
+                   var leadReasonId = 'subReas_lead_'+value.id;
                    $('#leadReas').append('<li class="js-reason" data-reason="'+ leadReasonId +'">'+value.name+'<ul class="subreasons" id="'+ leadReasonId +'"></ul></li>');
 
                    /*
@@ -53,7 +96,7 @@ $(document).ready(function ()
                       var leadSubReasons = value.subreasons;
                       for (i = 0; i < leadSubReasons.length; i++ )
                       {
-                          $('#'+leadReasonId).append('<li class="js-subreason" type="disc" data-subreason="solu_'+ leadSubReasons[i].id +'">'+leadSubReasons[i].name+'<ul class="solutions" id="solu_'+leadSubReasons[i].id +'"></ul></li>');
+                          $('#'+leadReasonId).append('<li class="js-subreason" type="disc" data-subreason="lead_solu_'+ leadSubReasons[i].id +'">'+leadSubReasons[i].name+'<ul class="solutions" id="lead_solu_'+leadSubReasons[i].id +'"></ul></li>');
 
                            /*
                             Leadership Solutions...................
@@ -62,7 +105,7 @@ $(document).ready(function ()
                           var leadSolutions = leadSubReasons[i].solutions;
                           for (x = 0; x < leadSolutions.length; x++ )
                           {
-                              $('#solu_'+leadSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+leadSolutions[x].id+'">'+leadSolutions[x].name+'</li>');
+                              $('#lead_solu_'+leadSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+leadSolutions[x].id+'">'+leadSolutions[x].name+'</li>');
                           }
 
                       }
@@ -80,34 +123,31 @@ $(document).ready(function ()
                    });
 
                    /*
-                    Frontline Reasons.........................
+                    Front Line Reasons.........................
                     */
 
                    $('#front_Line').text(value.family);
-                   var frontReasonId = 'reas_front_'+value.id;
-                   $('#frontReas').append('<li>'+value.name+'<ul type="none" id="'+ frontReasonId + '"></ul></li><br><br>');
+                   var frontReasonId = 'subReas_front_'+value.id;
+                   $('#frontReas').append('<li class="js-reason" data-reason="'+ frontReasonId +'">'+value.name+'<ul class="subreasons" id="'+ frontReasonId +'"></ul></li>');
 
                    /*
-                    Frontline Subreasons...................
+                    Front Line Subreasons...................
                     */
 
-                   var frontSubreasons = value.subreasons;
-                   for (i = 0; i < frontSubreasons.length; i++ )
+                   var frontSubReasons = value.subreasons;
+                   for (i = 0; i < frontSubReasons.length; i++ )
                    {
-                       $('#'+frontReasonId).append('<br><li type="disc">'+frontSubreasons[i].name+'</li>');
-
+                       $('#'+frontReasonId).append('<li class="js-subreason" type="disc" data-subreason="front_solu_'+ frontSubReasons[i].id +'">'+frontSubReasons[i].name+'<ul class="solutions" id="front_solu_'+frontSubReasons[i].id +'"></ul></li>');
 
                        /*
-                        Frontline Solutions...................
+                        Front Line Solutions...................
                         */
 
-                       var frontSolutions = frontSubreasons[i].solutions;
-
+                       var frontSolutions = frontSubReasons[i].solutions;
                        for (x = 0; x < frontSolutions.length; x++ )
                        {
-                           $('#'+frontReasonId).append('<br><ul><li type="circle">'+frontSolutions[x].name+'</li></ul>');
+                           $('#front_solu_'+frontSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+frontSolutions[x].id+'">'+frontSolutions[x].name+'</li>');
                        }
-
 
                    }
 
@@ -127,31 +167,27 @@ $(document).ready(function ()
                     */
 
                    $('#behavioral').text(value.family);
-                   var behaveReasonId = 'reas_behave_'+value.id;
-                   $('#behaveReas').append('<li>'+value.name+'<ul type="none" id="'+ behaveReasonId + '"></ul></li><br><br>');
+                   var behaveReasonId = 'subReas_behave_'+value.id;
+                   $('#behaveReas').append('<li class="js-reason" data-reason="'+ behaveReasonId +'">'+value.name+'<ul class="subreasons" id="'+ behaveReasonId +'"></ul></li>');
 
                    /*
-                    Behavioral Subreasons.........................
+                    Behavioral Subreasons...................
                     */
 
-                   var behaveSubreasons = value.subreasons;
-                   for (i = 0; i < behaveSubreasons.length; i++ )
+                   var behaveSubReasons = value.subreasons;
+                   for (i = 0; i < behaveSubReasons.length; i++ )
                    {
-                       $('#'+behaveReasonId).append('<br><li type="disc">'+behaveSubreasons[i].name+'</li>');
-
+                       $('#'+behaveReasonId).append('<li class="js-subreason" type="disc" data-subreason="behave_solu_'+ behaveSubReasons[i].id +'">'+behaveSubReasons[i].name+'<ul class="solutions" id="behave_solu_'+behaveSubReasons[i].id +'"></ul></li>');
 
                        /*
                         Behavioral Solutions...................
                         */
 
-                       var behaveSolutions = behaveSubreasons[i].solutions;
-
+                       var behaveSolutions = behaveSubReasons[i].solutions;
                        for (x = 0; x < behaveSolutions.length; x++ )
                        {
-                           $('#'+behaveReasonId).append('<br><ul><li type="circle">'+behaveSolutions[x].name+'</li></ul>');
-                           // console.log(behaveSolutions[x].name);
+                           $('#behave_solu_'+behaveSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+behaveSolutions[x].id+'">'+behaveSolutions[x].name+'</li>');
                        }
-
 
                    }
 

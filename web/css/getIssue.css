@@ -77,12 +77,15 @@ h1 {
 
 /*.js-subreasons {*/
     /*display: none;*/
+    /*margin: 10px 0;*/
 /*}*/
 
 .subreasons {
     display: none;
+    margin: 10px 0;
 }
 
 .solutions {
     display: none;
+    margin: 10px 0;
 }

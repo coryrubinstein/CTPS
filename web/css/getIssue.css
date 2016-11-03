@@ -70,15 +70,17 @@ h1 {
     display: none;
 }
 
-/*.js-reason {*/
-    /*display: none;*/
-    /*margin: 10px 0;*/
-/*}*/
+.js-reason {
+    margin: 10px 0;
+}
 
-/*.js-subreasons {*/
-    /*display: none;*/
-    /*margin: 10px 0;*/
-/*}*/
+.js-subreason {
+    margin: 10px 0;
+}
+
+.js-solution {
+    margin: 10px 0;
+}
 
 .subreasons {
     display: none;

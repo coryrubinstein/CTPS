@@ -7,8 +7,11 @@ $(document).ready(function ()
 
     $('#leadReas').on('click', '.js-reason', function(e)
     {
-        e.preventDefault();
+        e.stopImmediatePropagation();
         var clickSubreasons = $(this).data('reason');
+        // $(this).next('ul#subReas_lead_.subreasons').slideToggle('slow');
+        // $(this).parent().parent().find('li').slideUp(350);
+        // $(this).parent().parent().find('li').slideDown(350);
         $('#'+clickSubreasons).toggle({effect: 'drop', speed: 'slow'});
     });
 
@@ -96,7 +99,7 @@ $(document).ready(function ()
                       var leadSubReasons = value.subreasons;
                       for (i = 0; i < leadSubReasons.length; i++ )
                       {
-                          $('#'+leadReasonId).append('<li class="js-subreason" type="disc" data-subreason="lead_solu_'+ leadSubReasons[i].id +'">'+leadSubReasons[i].name+'<ul class="solutions" id="lead_solu_'+leadSubReasons[i].id +'"></ul></li>');
+                          $('#'+leadReasonId).append('<li class="js-subreason" type="disc" data-subreason="lead_solu_'+leadReasonId+ leadSubReasons[i].id +'">'+leadSubReasons[i].name+'<ul class="solutions" id="lead_solu_'+leadReasonId+ leadSubReasons[i].id +'"></ul></li>');
 
                            /*
                             Leadership Solutions...................
@@ -105,7 +108,8 @@ $(document).ready(function ()
                           var leadSolutions = leadSubReasons[i].solutions;
                           for (x = 0; x < leadSolutions.length; x++ )
                           {
-                              $('#lead_solu_'+leadSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+leadSolutions[x].id+'">'+leadSolutions[x].name+'</li>');
+                              $('#lead_solu_'+leadReasonId+leadSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+leadSolutions[x].id+'">'+leadSolutions[x].name+'</li>');
+
                           }
 
                       }
@@ -137,7 +141,7 @@ $(document).ready(function ()
                    var frontSubReasons = value.subreasons;
                    for (i = 0; i < frontSubReasons.length; i++ )
                    {
-                       $('#'+frontReasonId).append('<li class="js-subreason" type="disc" data-subreason="front_solu_'+ frontSubReasons[i].id +'">'+frontSubReasons[i].name+'<ul class="solutions" id="front_solu_'+frontSubReasons[i].id +'"></ul></li>');
+                       $('#'+frontReasonId).append('<li class="js-subreason" type="disc" data-subreason="front_solu_'+frontReasonId+ frontSubReasons[i].id +'">'+frontSubReasons[i].name+'<ul class="solutions" id="front_solu_'+frontReasonId+frontSubReasons[i].id +'"></ul></li>');
 
                        /*
                         Front Line Solutions...................
@@ -146,7 +150,7 @@ $(document).ready(function ()
                        var frontSolutions = frontSubReasons[i].solutions;
                        for (x = 0; x < frontSolutions.length; x++ )
                        {
-                           $('#front_solu_'+frontSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+frontSolutions[x].id+'">'+frontSolutions[x].name+'</li>');
+                           $('#front_solu_'+frontReasonId+frontSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+frontSolutions[x].id+'">'+frontSolutions[x].name+'</li>');
                        }
 
                    }
@@ -177,7 +181,7 @@ $(document).ready(function ()
                    var behaveSubReasons = value.subreasons;
                    for (i = 0; i < behaveSubReasons.length; i++ )
                    {
-                       $('#'+behaveReasonId).append('<li class="js-subreason" type="disc" data-subreason="behave_solu_'+ behaveSubReasons[i].id +'">'+behaveSubReasons[i].name+'<ul class="solutions" id="behave_solu_'+behaveSubReasons[i].id +'"></ul></li>');
+                       $('#'+behaveReasonId).append('<li class="js-subreason" type="disc" data-subreason="behave_solu_'+behaveReasonId+ behaveSubReasons[i].id +'">'+behaveSubReasons[i].name+'<ul class="solutions" id="behave_solu_'+behaveReasonId+behaveSubReasons[i].id +'"></ul></li>');
 
                        /*
                         Behavioral Solutions...................
@@ -186,7 +190,7 @@ $(document).ready(function ()
                        var behaveSolutions = behaveSubReasons[i].solutions;
                        for (x = 0; x < behaveSolutions.length; x++ )
                        {
-                           $('#behave_solu_'+behaveSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+behaveSolutions[x].id+'">'+behaveSolutions[x].name+'</li>');
+                           $('#behave_solu_'+behaveReasonId+behaveSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+behaveSolutions[x].id+'">'+behaveSolutions[x].name+'</li>');
                        }
 
                    }

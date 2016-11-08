@@ -60,7 +60,7 @@ class Reason
      * Set name
      *
      * @param string $name
-     * @return Video
+     * @return string
      */
     public function setName($name)
     {

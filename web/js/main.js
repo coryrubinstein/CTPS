@@ -9,9 +9,9 @@ $(document).ready(function ()
     {
         e.stopImmediatePropagation();
         var clickSubreasons = $(this).data('reason');
-        // $(this).next('ul#subReas_lead_.subreasons').slideToggle('slow');
-        // $(this).parent().parent().find('li').slideUp(350);
-        // $(this).parent().parent().find('li').slideDown(350);
+        // $(this).next('.js-reason').show('slow');
+        // $(this).parent().find('.js-reason').slideToggle(350);
+        $(this).siblings('.js-reason').toggle({effect: 'drop', speed: 'slow'});
         $('#'+clickSubreasons).toggle({effect: 'drop', speed: 'slow'});
     });
 
@@ -19,6 +19,7 @@ $(document).ready(function ()
     {
         e.stopImmediatePropagation();
         var clickSolutions = $(this).data('subreason');
+        $(this).siblings('.js-subreason').toggle({effect: 'drop', speed: 'slow'});
         $('#'+clickSolutions).toggle({effect: 'drop', speed: 'slow'});
     });
 
@@ -32,6 +33,7 @@ $(document).ready(function ()
     {
         e.preventDefault();
         var clickSubreasons = $(this).data('reason');
+        $(this).siblings('.js-reason').toggle({effect: 'drop', speed: 'slow'});
         $('#'+clickSubreasons).toggle({effect: 'drop', speed: 'slow'});
     });
 
@@ -39,6 +41,7 @@ $(document).ready(function ()
     {
         e.stopImmediatePropagation();
         var clickSolutions = $(this).data('subreason');
+        $(this).siblings('.js-subreason').toggle({effect: 'drop', speed: 'slow'});
         $('#'+clickSolutions).toggle({effect: 'drop', speed: 'slow'});
     });
 
@@ -52,6 +55,7 @@ $(document).ready(function ()
     {
         e.preventDefault();
         var clickSubreasons = $(this).data('reason');
+        $(this).siblings('.js-reason').toggle({effect: 'drop', speed: 'slow'});
         $('#'+clickSubreasons).toggle({effect: 'drop', speed: 'slow'});
     });
 
@@ -59,6 +63,7 @@ $(document).ready(function ()
     {
         e.stopImmediatePropagation();
         var clickSolutions = $(this).data('subreason');
+        $(this).siblings('.js-subreason').toggle({effect: 'drop', speed: 'slow'});
         $('#'+clickSolutions).toggle({effect: 'drop', speed: 'slow'});
     });
 

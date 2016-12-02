@@ -164,6 +164,7 @@ class DefaultController extends Controller
         (
             'id' => $moduleObj->getId(),
             'name' => $moduleObj->getName(),
+            'description' => $moduleObj->getDescription()
         );
 
         return $returnModule;

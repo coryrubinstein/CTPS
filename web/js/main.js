@@ -30,10 +30,11 @@ $(document).ready(function ()
     {
        e.stopImmediatePropagation();
        var clickModules = $(this).data('solutions');
+       var clickDescription = $(this).data('description');
        bootbox.alert
        ({
                title: clickModules,
-               message: 'Dummy text regarding... '+clickModules,
+               message: clickDescription,
                closeButton: false,
                backdrop: true,
                onEscape: true
@@ -69,10 +70,11 @@ $(document).ready(function ()
     {
         e.stopImmediatePropagation();
         var clickModules = $(this).data('solutions');
+        var clickDescription = $(this).data('description');
         bootbox.alert
         ({
             title: clickModules,
-            message: 'Dummy text regarding... '+clickModules,
+            message: clickDescription,
             closeButton: false,
             backdrop: true,
             onEscape: true
@@ -109,10 +111,11 @@ $(document).ready(function ()
     {
         e.stopImmediatePropagation();
         var clickModules = $(this).data('solutions');
+        var clickDescription = $(this).data('description');
         bootbox.alert
         ({
             title: clickModules,
-            message: 'Dummy text regarding... '+clickModules,
+            message: clickDescription,
             closeButton: false,
             backdrop: true,
             onEscape: true
@@ -170,7 +173,10 @@ $(document).ready(function ()
                           var leadSolutions = leadSubReasons[i].solutions;
                           for (x = 0; x < leadSolutions.length; x++ )
                           {
-                              $('#lead_solu_'+leadReasonId+'_'+leadSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+leadSolutions[x].name+'">'+leadSolutions[x].name+'</li>');
+                              leadDescription = leadSolutions[x].description;
+                              $('#lead_solu_'+leadReasonId+'_'+leadSubReasons[i].id).append('<li class="js-solution" type="circle" data-description="'+leadDescription+'" data-solutions="'+leadSolutions[x].name+'">'+leadSolutions[x].name+'</li>');
+
+                              // console.log(leadDescription);
 
                           }
 
@@ -212,7 +218,8 @@ $(document).ready(function ()
                        var frontSolutions = frontSubReasons[i].solutions;
                        for (x = 0; x < frontSolutions.length; x++ )
                        {
-                           $('#front_solu_'+frontReasonId+'_'+frontSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+frontSolutions[x].name+'">'+frontSolutions[x].name+'</li>');
+                           frontDescription = frontSolutions[x].description;
+                           $('#front_solu_'+frontReasonId+'_'+frontSubReasons[i].id).append('<li class="js-solution" type="circle" data-description="'+frontDescription+'" data-solutions="'+frontSolutions[x].name+'">'+frontSolutions[x].name+'</li>');
                        }
 
                    }
@@ -252,7 +259,8 @@ $(document).ready(function ()
                        var behaveSolutions = behaveSubReasons[i].solutions;
                        for (x = 0; x < behaveSolutions.length; x++ )
                        {
-                           $('#behave_solu_'+behaveReasonId+'_'+behaveSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+behaveSolutions[x].name+'">'+behaveSolutions[x].name+'</li>');
+                           behaveDescription = behaveSolutions[x].description;
+                           $('#behave_solu_'+behaveReasonId+'_'+behaveSubReasons[i].id).append('<li class="js-solution" type="circle" data-description="'+behaveDescription+'" data-solutions="'+behaveSolutions[x].name+'">'+behaveSolutions[x].name+'</li>');
                        }
 
                    }

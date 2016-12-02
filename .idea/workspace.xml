@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af10ca2d-a054-4f61-9a70-04bb99dd9e66" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/bootbox.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/landing/showIssue.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/landing/showIssue.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/getIssue.css" afterPath="$PROJECT_DIR$/web/css/getIssue.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/main.js" afterPath="$PROJECT_DIR$/web/js/main.js" />
     </list>
     <ignored path="CTPS.iws" />
@@ -59,8 +55,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+            <state relative-caret-position="774">
+              <caret line="177" column="16" selection-start-line="177" selection-start-column="16" selection-end-line="177" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -596,7 +592,7 @@
       <workItem from="1479142271798" duration="31000" />
       <workItem from="1479142309108" duration="3788000" />
       <workItem from="1480529159938" duration="3011000" />
-      <workItem from="1480590118221" duration="12885000" />
+      <workItem from="1480590118221" duration="16552000" />
     </task>
     <task id="LOCAL-00001" summary="Updated front-end script">
       <created>1477410867781</created>
@@ -661,11 +657,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478644918104</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added a dummy text modal to the leadership solutions">
+      <created>1480641593135</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1480641593135</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="387619000" />
+    <option name="totallyTimeSpent" value="391286000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -738,7 +741,8 @@
     <MESSAGE value="Added some line breaks and changed the javascript file name" />
     <MESSAGE value="Fixed the duplicate solutions on all module families" />
     <MESSAGE value="Added a toggle that hides and shows subreasons/solutions to each module family." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a toggle that hides and shows subreasons/solutions to each module family." />
+    <MESSAGE value="Added a dummy text modal to the leadership solutions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a dummy text modal to the leadership solutions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1030,8 +1034,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+        <state relative-caret-position="774">
+          <caret line="177" column="16" selection-start-line="177" selection-start-column="16" selection-end-line="177" selection-end-column="16" />
           <folding />
         </state>
       </provider>

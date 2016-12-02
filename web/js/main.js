@@ -15,6 +15,7 @@ $(document).ready(function ()
         $('#'+clickSubreasons).toggle({effect: 'drop', speed: 'slow'});
     });
 
+
     $('#leadReas').on('click', '.js-subreason', function(e)
     {
         e.stopImmediatePropagation();
@@ -22,46 +23,23 @@ $(document).ready(function ()
         $(this).siblings('.js-subreason').toggle({effect: 'drop', speed: 'slow'});
         $('#'+clickSolutions).toggle({effect: 'drop', speed: 'slow'});
 
-        // $('#leadReas').on('click', 'js-solution', function () {
-        //     $(this).siblings('.js-solution').toggle({effect: 'drop', speed: 'slow'});
-        //     $(this).siblings('.js-solution').toggleClass('closed');
-        //     return false;
-        // });
-
-
-        // var siblings = $(this).siblings('.js-subreason');
-        // if ($(siblings).hasClass('closed')) {
-        //     $(siblings).removeClass('closed');
-        //     $(this).siblings('.js-subreason').toggle({effect: 'drop', speed: 'slow'});
-        //
-        //
-        //
-        //
-        // } else {
-        //     $(siblings).addClass('closed');
-        //     // $(this).removeClass('open').addClass('closed')
-        //     $('#'+clickSolutions).toggle({effect: 'drop', speed: 'slow'});
-        //     return false;
-        // }
-
-
-
-        // $(this).find('.js-subreason').not(this).addClass('closed');
-        // $(this).toggleClass('closed');
-
     });
+
 
     $('#leadReas').on('click', '.js-solution', function (e)
     {
        e.stopImmediatePropagation();
-        bootbox.alert({
-            title: 'Dummy Text',
-            message: 'Dummy text regarding leadership Management...',
-            closeButton: false,
-            backdrop: true,
-            onEscape: true
+       var clickModules = $(this).data('solutions');
+       bootbox.alert
+       ({
+               title: clickModules,
+               message: 'Dummy text regarding... '+clickModules,
+               closeButton: false,
+               backdrop: true,
+               onEscape: true
 
-        });
+       });
+
     });
 
     /*
@@ -77,12 +55,30 @@ $(document).ready(function ()
         $('#'+clickSubreasons).toggle({effect: 'drop', speed: 'slow'});
     });
 
+
     $('#frontReas').on('click', '.js-subreason', function(e)
     {
         e.stopImmediatePropagation();
         var clickSolutions = $(this).data('subreason');
         $(this).siblings('.js-subreason').toggle({effect: 'drop', speed: 'slow'});
         $('#'+clickSolutions).toggle({effect: 'drop', speed: 'slow'});
+    });
+
+
+    $('#frontReas').on('click', '.js-solution', function (e)
+    {
+        e.stopImmediatePropagation();
+        var clickModules = $(this).data('solutions');
+        bootbox.alert
+        ({
+            title: clickModules,
+            message: 'Dummy text regarding... '+clickModules,
+            closeButton: false,
+            backdrop: true,
+            onEscape: true
+
+        });
+
     });
 
 
@@ -99,6 +95,7 @@ $(document).ready(function ()
         $('#'+clickSubreasons).toggle({effect: 'drop', speed: 'slow'});
     });
 
+
     $('#behaveReas').on('click', '.js-subreason', function(e)
     {
         e.stopImmediatePropagation();
@@ -108,6 +105,27 @@ $(document).ready(function ()
     });
 
 
+    $('#behaveReas').on('click', '.js-solution', function (e)
+    {
+        e.stopImmediatePropagation();
+        var clickModules = $(this).data('solutions');
+        bootbox.alert
+        ({
+            title: clickModules,
+            message: 'Dummy text regarding... '+clickModules,
+            closeButton: false,
+            backdrop: true,
+            onEscape: true
+
+        });
+
+    });
+
+
+
+    /*
+     AJAX Request.........................
+     */
 
 
     $.ajax({
@@ -152,7 +170,7 @@ $(document).ready(function ()
                           var leadSolutions = leadSubReasons[i].solutions;
                           for (x = 0; x < leadSolutions.length; x++ )
                           {
-                              $('#lead_solu_'+leadReasonId+'_'+leadSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+leadSolutions[x].id+'">'+leadSolutions[x].name+'</li>');
+                              $('#lead_solu_'+leadReasonId+'_'+leadSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+leadSolutions[x].name+'">'+leadSolutions[x].name+'</li>');
 
                           }
 
@@ -194,7 +212,7 @@ $(document).ready(function ()
                        var frontSolutions = frontSubReasons[i].solutions;
                        for (x = 0; x < frontSolutions.length; x++ )
                        {
-                           $('#front_solu_'+frontReasonId+'_'+frontSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+frontSolutions[x].id+'">'+frontSolutions[x].name+'</li>');
+                           $('#front_solu_'+frontReasonId+'_'+frontSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+frontSolutions[x].name+'">'+frontSolutions[x].name+'</li>');
                        }
 
                    }
@@ -234,7 +252,7 @@ $(document).ready(function ()
                        var behaveSolutions = behaveSubReasons[i].solutions;
                        for (x = 0; x < behaveSolutions.length; x++ )
                        {
-                           $('#behave_solu_'+behaveReasonId+'_'+behaveSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+behaveSolutions[x].id+'">'+behaveSolutions[x].name+'</li>');
+                           $('#behave_solu_'+behaveReasonId+'_'+behaveSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+behaveSolutions[x].name+'">'+behaveSolutions[x].name+'</li>');
                        }
 
                    }

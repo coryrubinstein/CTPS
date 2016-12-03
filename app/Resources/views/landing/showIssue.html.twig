@@ -22,15 +22,15 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <div id="leader" class="col-sm-4">
                 <h4 id="leadership"></h4><br>
                <ul id="leadReas" type="none"></ul>
             </div>
-            <div class="col-sm-4">
+            <div id="fronter" class="col-sm-4">
                 <h4 id="front_Line"></h4><br>
                 <ul id="frontReas" type="none"></ul>
             </div>
-            <div class="col-sm-4">
+            <div id="behaver" class="col-sm-4">
                 <h4 id="behavioral"></h4><br>
                 <ul id="behaveReas" type="none"></ul>
             </div>
@@ -49,5 +49,8 @@
     {{ parent() }}
 
     <script src="{{ asset('js/main.js') }}"></script>
+    <script>
+        CTPS.issueId={{ Issue.id }}
+    </script>
 
 {% endblock %}

@@ -5,6 +5,7 @@ namespace ctpsBundle\Controller;
 use ctpsBundle\ctpsBundle;
 use ctpsBundle\Entity\Issue;
 use ctpsBundle\Entity\IssueReason;
+use ctpsBundle\Entity\Module;
 use ctpsBundle\Entity\Reason;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -25,17 +26,9 @@ class DefaultController extends Controller
         $issue = $em->getRepository('ctpsBundle:Issue')
             ->find($id);
 
-
-        $finalArray = array
-        (
-            'Issue' => $this->parseIssue($issue),
-            'name' => $issue->getName(),
-
-        );
-
         return $this->render('/landing/showIssue.html.twig', array
         (
-            'Issue' => $finalArray,
+            'Issue' => $issue
 
         ));
     }
@@ -83,6 +76,19 @@ class DefaultController extends Controller
                 'reason' => $reasons
 
             ]);
+    }
+
+
+    public function getSolutionAction(Module $module)
+    {
+        $solutionArray = array
+        (
+            'id' => $module->getId(),
+            'title' => $module->getName(),
+            'description' => $module->getDescription()
+        );
+
+        return new JsonResponse($solutionArray);
     }
 
 

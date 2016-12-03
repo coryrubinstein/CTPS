@@ -15,3 +15,9 @@ api.ctps.issue.get:
     defaults: { _controller: ctpsBundle:Default:showIssue }
     methods: [GET]
     options: { expose: true }
+
+api.ctps.solution.get:
+    path: /ctps/solution/get/{id}
+    defaults: { _controller: ctpsBundle:Default:getSolution }
+    methods: [GET]
+    options: { expose: true }

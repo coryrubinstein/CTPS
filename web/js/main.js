@@ -1,4 +1,5 @@
-window.CTPS= {
+window.CTPS =
+{
     issueId: null
 };
 
@@ -11,15 +12,6 @@ $(document).ready(function ()
     /*
     Leadership Toggles.........................
      */
-
-
-    $('#leadReas').on ('click', function (e)
-    {
-
-        e.stopImmediatePropagation();
-        $('#fronter').toggle();
-        $('#behaver').toggle();
-    });
 
 
     $('#leadReas').on('click', '.js-reason', function(e)
@@ -39,6 +31,11 @@ $(document).ready(function ()
         $('#'+clickSolutions).toggle({effect: 'drop', speed: 'slow'});
 
     });
+
+
+    /*
+     Leadership Modal AJAX Request.........................
+     */
 
 
     $('#leadReas').on('click', '.js-solution', function (e)
@@ -68,6 +65,7 @@ $(document).ready(function ()
 
     });
 
+
     /*
      Front Line Toggles.........................
      */
@@ -90,6 +88,10 @@ $(document).ready(function ()
         $('#'+clickSolutions).toggle({effect: 'drop', speed: 'slow'});
     });
 
+
+    /*
+     Front Line Modal AJAX Request.........................
+     */
 
     $('#frontReas').on('click', '.js-solution', function (e)
     {
@@ -142,6 +144,11 @@ $(document).ready(function ()
     });
 
 
+    /*
+     Behavioral Modal AJAX Request.........................
+     */
+
+
     $('#behaveReas').on('click', '.js-solution', function (e)
     {
         e.stopImmediatePropagation();
@@ -189,7 +196,19 @@ $(document).ready(function ()
                $('#leadership').click(function(e)
                {
                    e.stopImmediatePropagation();
+                   $('.row').children().not($('#leader')).toggle('slow');
                    $('#leadReas').toggle({effect: 'drop', speed: 'slow'});
+                   var trigger = $('#leader');
+                   if (trigger.hasClass('expanded'))
+                   {
+                       trigger.removeClass('expanded');
+                       trigger.animate({left: '0px'},700);
+
+                   } else {
+                       trigger.addClass('expanded');
+                       trigger.animate({left: '400px'},700);
+                   }
+
                });
 
                if (value.familyId == 104)
@@ -219,10 +238,8 @@ $(document).ready(function ()
                           var leadSolutions = leadSubReasons[i].solutions;
                           for (x = 0; x < leadSolutions.length; x++ )
                           {
-                              var leadDescription = leadSolutions[x].description;
                               $('#lead_solu_'+leadReasonId+'_'+leadSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+leadSolutions[x].id+'">'+leadSolutions[x].name+'</li>');
 
-                              // console.log(leadDescription);
 
                           }
 
@@ -238,6 +255,17 @@ $(document).ready(function ()
                    {
                        e.stopImmediatePropagation();
                        $('#frontReas').toggle({effect: 'drop', speed: 'slow'});
+                       $('.row').children().not($('#fronter')).toggle();
+                       var trigger = $('#fronter');
+                       if (trigger.hasClass('expanded'))
+                       {
+                           trigger.removeClass('expanded');
+                           trigger.animate({left: '0px'},700);
+
+                       } else {
+                           trigger.addClass('expanded');
+                           trigger.animate({left: '400px'},700);
+                       }
                    });
 
                    /*
@@ -264,7 +292,6 @@ $(document).ready(function ()
                        var frontSolutions = frontSubReasons[i].solutions;
                        for (x = 0; x < frontSolutions.length; x++ )
                        {
-                           var frontDescription = frontSolutions[x].description;
                            $('#front_solu_'+frontReasonId+'_'+frontSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+frontSolutions[x].id+'">'+frontSolutions[x].name+'</li>');
                        }
 
@@ -279,6 +306,17 @@ $(document).ready(function ()
                    {
                        e.stopImmediatePropagation();
                        $('#behaveReas').toggle({effect: 'drop', speed: 'slow'});
+                       $('.row').children().not($('#behaver')).toggle('slow');
+                       var trigger = $('#behaver');
+                       if (trigger.hasClass('expanded'))
+                       {
+                           trigger.removeClass('expanded');
+                           trigger.animate({left: '0px'},700);
+
+                       } else {
+                           trigger.addClass('expanded');
+                           trigger.animate({left: '400px'},700);
+                       }
                    });
 
                    /*
@@ -305,7 +343,6 @@ $(document).ready(function ()
                        var behaveSolutions = behaveSubReasons[i].solutions;
                        for (x = 0; x < behaveSolutions.length; x++ )
                        {
-                           var behaveDescription = behaveSolutions[x].description;
                            $('#behave_solu_'+behaveReasonId+'_'+behaveSubReasons[i].id).append('<li class="js-solution" type="circle" data-solutions="'+behaveSolutions[x].id+'">'+behaveSolutions[x].name+'</li>');
                        }
 

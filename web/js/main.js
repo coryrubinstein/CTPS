@@ -183,7 +183,8 @@ $(document).ready(function ()
      */
 
 
-    $.ajax({
+    $.ajax
+    ({
         url: Routing.generate('api.ctps.issue.get', {issueId:CTPS.issueId}),
         dataType: 'json',
         contentType: 'application/json',
@@ -199,16 +200,6 @@ $(document).ready(function ()
                    $('.row').children().not($('#leader')).toggle();
                    $('#leadReas').toggle({effect: 'drop', speed: 'slow'});
                    var trigger = $('#leader');
-                   // if (trigger.hasClass('expanded'))
-                   // {
-                   //     trigger.removeClass('expanded');
-                   //     trigger.animate({left: '0px'},700);
-                   //
-                   // } else {
-                   //     trigger.addClass('expanded');
-                   //     trigger.animate({left: '400px'},700);
-                   // }
-
                    trigger.toggleClass('col-centered');
 
 
@@ -260,16 +251,6 @@ $(document).ready(function ()
                        $('#frontReas').toggle({effect: 'drop', speed: 'slow'});
                        $('.row').children().not($('#fronter')).toggle();
                        var trigger = $('#fronter');
-                       // if (trigger.hasClass('expanded'))
-                       // {
-                       //     trigger.removeClass('expanded');
-                       //     trigger.animate({left: '0px'},700);
-                       //
-                       // } else {
-                       //     trigger.addClass('expanded');
-                       //     trigger.animate({left: '400px'},700);
-                       // }
-
                        trigger.toggleClass('col-centered');
                    });
 
@@ -313,15 +294,6 @@ $(document).ready(function ()
                        $('#behaveReas').toggle({effect: 'drop', speed: 'slow'});
                        $('.row').children().not($('#behaver')).toggle();
                        var trigger = $('#behaver');
-                       // if (trigger.hasClass('expanded'))
-                       // {
-                       //     trigger.removeClass('expanded');
-                       //     trigger.animate({left: '0px'},700);
-                       //
-                       // } else {
-                       //     trigger.addClass('expanded');
-                       //     trigger.animate({left: '400px'},700);
-                       // }
                        trigger.toggleClass('col-centered');
                    });
 
